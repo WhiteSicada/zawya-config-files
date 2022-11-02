@@ -1,6 +1,6 @@
 spring:
   application:
-    name: referentiel-zawya-service
+    name: zawya-referentiel-service
   datasource:
     password: kun123456789+
     url: jdbc:mysql://localhost:3306/zawyadb
