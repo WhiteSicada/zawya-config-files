@@ -12,7 +12,10 @@ spring:
           uri: http://localhost:8081/
           predicates:
             - Path=/referentiel/**
-        # - id: bcpDistributionLayerCustomerModule
-        #   uri: http://localhost:8082/
-        #   predicates:
-        #     - Path=/distribution/customers/**
+
+# ====== Actuator configuration ====== #
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
