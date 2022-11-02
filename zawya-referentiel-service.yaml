@@ -1,3 +1,4 @@
+# ====== Spring configuration ====== #
 spring:
   application:
     name: zawya-referentiel-service
@@ -12,3 +13,14 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+# ====== Actuator configuration ====== #
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# ====== Server configuration ====== #
+server:
+  port: 8081
