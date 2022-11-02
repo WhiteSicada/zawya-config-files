@@ -1,0 +1,18 @@
+# ====== Spring configuration ====== #
+server:
+  port: 8080
+
+spring:
+  application:
+    name: zawya-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: zawyaReferentiel
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/referentiel/**
+        # - id: bcpDistributionLayerCustomerModule
+        #   uri: http://localhost:8082/
+        #   predicates:
+        #     - Path=/distribution/customers/**
