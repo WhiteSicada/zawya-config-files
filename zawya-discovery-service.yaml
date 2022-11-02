@@ -1,0 +1,14 @@
+# ====== Server configuration ====== #
+spring:
+  application:
+    name: zawya-discovery-service
+
+# ====== Server configuration ====== #
+server:
+  port: 8761
+
+# ====== Eureka configuration ====== #
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
