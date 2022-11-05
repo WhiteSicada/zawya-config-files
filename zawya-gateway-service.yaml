@@ -12,10 +12,34 @@ spring:
           uri: http://localhost:8081/
           predicates:
             - Path=/referentiel/**
-      httpclient:
-        wiretap: true
-      httpserver:
-        wiretap: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_UNIQUE
+        - AddResponseHeader=Access-Control-Allow-Origin, *
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowed-origins: "*"
+            allowed-methods:
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+              - "HEAD"
+              - "OPTIONS"
+            allowed-headers:
+              - "Origin"
+              - "Content-Type"
+              - "Accept"
+              - "Authorization"
+              - "User-Key"
+              - "Request-Tracker"
+              - "Session-Tracker"
+              - "X-XSRF-TOKEN"
+              - "X-IBM-CLIENT-ID"
+              - "Message-ID"
+              - "X-IBM-CLIENT-SECRET"
+            allow-credentials: true
+        add-to-simple-url-handler-mapping: true
 
 # ====== Actuator configuration ====== #
 management:
@@ -23,15 +47,3 @@ management:
     web:
       exposure:
         include: "*"
-
-# ====== Cors configuration ====== #
-logging:
-  level:
-    ROOT: DEBUG
-    reactor:
-      netty: DEBUG
-    org:
-      springframework:
-        security: DEBUG
-        cloud:
-          gateway: DEBUG
