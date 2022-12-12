@@ -1,0 +1,34 @@
+# ====== Spring configuration ====== #
+spring:
+  application:
+    name: zawya-events-service
+  datasource:
+    password: kun123456789+
+    url: jdbc:mysql://localhost:3306/zawyadb
+    username: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+# ====== Actuator configuration ====== #
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# ====== Server configuration ====== #
+server:
+  port: 8082
+
+# ====== Eureka configuration ====== #
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
